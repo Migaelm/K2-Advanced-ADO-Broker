@@ -157,7 +157,7 @@ namespace SourceCode.SmartObjects.Services.Data
             get { return sValue14; }
             set { sValue14 = value; }
         }
-        [Attributes.Property("Value15", SoType.Text, "Value15", "Fifteenth Column that is being returned")]
+        [Attributes.Property("Value15", SoType.Text, "Value15", "up to Fifteenth Column that is being returned")]
         public string Value15
         {
             get { return sValue15; }
@@ -416,7 +416,7 @@ namespace SourceCode.SmartObjects.Services.Data
         #endregion
 
         #region Service Methods
-        [Attributes.Method("Query", MethodType.List, "Query", "List Method that returns Fifteen columns of data based on the input ADO Query. You can use placeholders in the query (E.g \"{value1}\" or \"{value15}\") to reference the input properties.",
+        [Attributes.Method("Query", MethodType.List, "Query", "List Method that returns up to Fifteen columns of data based on the input ADO Query. You can use placeholders in the query (E.g \"{value1}\" or \"{value15}\") to reference the input properties.",
                     new string[] { "ADOQuery" },  //required property array (No required properties for this sample)
                     new string[] { "ADOQuery", "Value1", "Value2", "Value3", "Value4", "Value5", "Value6", "Value7", "Value8", "Value9", "Value10", "Value11", "Value12", "Value13", "Value14", "Value15" }, //input property array (no optional properties)
                     new string[] { "Value1", "Value2", "Value3", "Value4", "Value5", "Value6", "Value7", "Value8", "Value9", "Value10", "Value11", "Value12", "Value13", "Value14", "Value15" })] //return property 1-column array
@@ -456,7 +456,7 @@ namespace SourceCode.SmartObjects.Services.Data
             return svcADOQueryItems;
         }
 
-        [Attributes.Method("QueryFirst", MethodType.Read, "Query First Item", "Read Method that returns first row with Fifteen columns of data based on the input ADO Query. You can use placeholders in the query (E.g \"{value1}\" or \"{value15}\") to reference the input properties.",
+        [Attributes.Method("QueryFirst", MethodType.Read, "Query First Item", "Read Method that returns first row with up to Fifteen columns of data based on the input ADO Query. You can use placeholders in the query (E.g \"{value1}\" or \"{value15}\") to reference the input properties.",
                     new string[] { "ADOQuery" },  //required property array (No required properties for this sample)
                     new string[] { "ADOQuery", "Value1", "Value2", "Value3", "Value4", "Value5", "Value6", "Value7", "Value8", "Value9", "Value10", "Value11", "Value12", "Value13", "Value14", "Value15" }, //input property array (no optional properties)
                     new string[] { "Value1", "Value2", "Value3", "Value4", "Value5", "Value6", "Value7", "Value8", "Value9", "Value10", "Value11", "Value12", "Value13", "Value14", "Value15" })] //return property 1-column array
@@ -504,7 +504,7 @@ namespace SourceCode.SmartObjects.Services.Data
             }
         }
 
-        [Attributes.Method("QueryLast", MethodType.Read, "Query Last Item", "Read Method that returns last row with Fifteen columns of data based on the input ADO Query. You can use placeholders in the query (E.g \"{value1}\" or \"{value15}\") to reference the input properties.",
+        [Attributes.Method("QueryLast", MethodType.Read, "Query Last Item", "Read Method that returns last row with up to Fifteen columns of data based on the input ADO Query. You can use placeholders in the query (E.g \"{value1}\" or \"{value15}\") to reference the input properties.",
                     new string[] { "ADOQuery" },  //required property array (No required properties for this sample)
                     new string[] { "ADOQuery", "Value1", "Value2", "Value3", "Value4", "Value5", "Value6", "Value7", "Value8", "Value9", "Value10", "Value11", "Value12", "Value13", "Value14", "Value15" }, //input property array (no optional properties)
                     new string[] { "Value1", "Value2", "Value3", "Value4", "Value5", "Value6", "Value7", "Value8", "Value9", "Value10", "Value11", "Value12", "Value13", "Value14", "Value15" })] //return property 1-column array
@@ -552,7 +552,7 @@ namespace SourceCode.SmartObjects.Services.Data
             }
         }
 
-        [Attributes.Method("QueryIndex", MethodType.Read, "Query Item as Index", "Read Method that returns row at index with Fifteen columns of data based on the input ADO Query. You can use placeholders in the query (E.g \"{value1}\" or \"{value15}\") to reference the input properties.",
+        [Attributes.Method("QueryIndex", MethodType.Read, "Query Item as Index", "Read Method that returns row at index with up to Fifteen columns of data based on the input ADO Query. You can use placeholders in the query (E.g \"{value1}\" or \"{value15}\") to reference the input properties.",
                     new string[] { "ADOQuery" },  //required property array (No required properties for this sample)
                     new string[] { "ADOQuery", "Value1", "Value2", "Value3", "Value4", "Value5", "Value6", "Value7", "Value8", "Value9", "Value10", "Value11", "Value12", "Value13", "Value14", "Value15" }, //input property array (no optional properties)
                     new string[] { "Value1", "Value2", "Value3", "Value4", "Value5", "Value6", "Value7", "Value8", "Value9", "Value10", "Value11", "Value12", "Value13", "Value14", "Value15" })] //return property 1-column array
@@ -603,7 +603,7 @@ namespace SourceCode.SmartObjects.Services.Data
             }
         }
 
-        [Attributes.Method("QueryToString", MethodType.Read, "Query to Joined String", "Read Method that returns Fifteen columns of data based on the input ADO Query but joined into a string. You can use placeholders in the query (E.g \"{value1}\" or \"{value15}\") to reference the input properties.",
+        [Attributes.Method("QueryToString", MethodType.Read, "Query to Joined String", "Read Method that returns up to Fifteen columns of data based on the input ADO Query but joined into a string. You can use placeholders in the query (E.g \"{value1}\" or \"{value15}\") to reference the input properties.",
                     new string[] { "ADOQuery" },  //required property array (No required properties for this sample)
                     new string[] { "ADOQuery", "Value1", "Value2", "Value3", "Value4", "Value5", "Value6", "Value7", "Value8", "Value9", "Value10", "Value11", "Value12", "Value13", "Value14", "Value15" }, //input property array (no optional properties)
                     new string[] { "Value1", "Value2", "Value3", "Value4", "Value5", "Value6", "Value7", "Value8", "Value9", "Value10", "Value11", "Value12", "Value13", "Value14", "Value15" })] //return property 1-column array
@@ -694,33 +694,49 @@ namespace SourceCode.SmartObjects.Services.Data
             return joinedItems;
         }
 
-        [Attributes.Method("SplitStrings", MethodType.List, "Split Strings", "List Method that returns Fifteen columns of data based on the input joined strings. You can use placeholders in the query (E.g \"{value1}\" or \"{value15}\") to reference the input properties.",
+        [Attributes.Method("SplitStrings", MethodType.List, "Split Strings", "List Method that returns up to Fifteen columns of data based on the input joined strings.",
                     new string[] { },  //required property array (No required properties for this sample)
                     new string[] { "Value1", "Value2", "Value3", "Value4", "Value5", "Value6", "Value7", "Value8", "Value9", "Value10", "Value11", "Value12", "Value13", "Value14", "Value15" }, //input property array (no optional properties)
                     new string[] { "Value1", "Value2", "Value3", "Value4", "Value5", "Value6", "Value7", "Value8", "Value9", "Value10", "Value11", "Value12", "Value13", "Value14", "Value15" })] //return property 1-column array
         public List<ADOQueryClass> SplitStrings(
-            [Attributes.Parameter("Delimiter",SoType.Text,"Delimiter","Delimiter to use for splitting values",false)]
+            [Attributes.Parameter("Delimiter",SoType.Text,"Delimiter","Delimiter to use for splitting values",true)]
             string delimiter = ";"
             )
         {
             string[] delim = new string[1];
             delim[0] = delimiter;
             List<ADOQueryClass> svcADOQueryItems = new List<ADOQueryClass>();
-            var Value1Array = Value1.Split(delim, StringSplitOptions.None);
-            var Value2Array = Value2.Split(delim, StringSplitOptions.None);
-            var Value3Array = Value3.Split(delim, StringSplitOptions.None);
-            var Value4Array = Value4.Split(delim, StringSplitOptions.None);
-            var Value5Array = Value5.Split(delim, StringSplitOptions.None);
-            var Value6Array = Value6.Split(delim, StringSplitOptions.None);
-            var Value7Array = Value7.Split(delim, StringSplitOptions.None);
-            var Value8Array = Value8.Split(delim, StringSplitOptions.None);
-            var Value9Array = Value9.Split(delim, StringSplitOptions.None);
-            var Value10Array = Value10.Split(delim, StringSplitOptions.None);
-            var Value11Array = Value11.Split(delim, StringSplitOptions.None);
-            var Value12Array = Value12.Split(delim, StringSplitOptions.None);
-            var Value13Array = Value13.Split(delim, StringSplitOptions.None);
-            var Value14Array = Value14.Split(delim, StringSplitOptions.None);
-            var Value15Array = Value15.Split(delim, StringSplitOptions.None);
+            Value1 = IfNullSetToDefault(Value1);
+            Value2 = IfNullSetToDefault(Value2);
+            Value3 = IfNullSetToDefault(Value3);
+            Value4 = IfNullSetToDefault(Value4);
+            Value5 = IfNullSetToDefault(Value5);
+            Value6 = IfNullSetToDefault(Value6);
+            Value7 = IfNullSetToDefault(Value7);
+            Value8 = IfNullSetToDefault(Value8);
+            Value9 = IfNullSetToDefault(Value9);
+            Value10 = IfNullSetToDefault(Value10);
+            Value11 = IfNullSetToDefault(Value11);
+            Value12 = IfNullSetToDefault(Value12);
+            Value13 = IfNullSetToDefault(Value13);
+            Value14 = IfNullSetToDefault(Value14);
+            Value15 = IfNullSetToDefault(Value15);
+
+            string[] Value1Array = Value1.Split(delim, StringSplitOptions.None);
+            string[] Value2Array = Value2.Split(delim, StringSplitOptions.None);
+            string[] Value3Array = Value3.Split(delim, StringSplitOptions.None);
+            string[] Value4Array = Value4.Split(delim, StringSplitOptions.None);
+            string[] Value5Array = Value5.Split(delim, StringSplitOptions.None);
+            string[] Value6Array = Value6.Split(delim, StringSplitOptions.None);
+            string[] Value7Array = Value7.Split(delim, StringSplitOptions.None);
+            string[] Value8Array = Value8.Split(delim, StringSplitOptions.None);
+            string[] Value9Array = Value9.Split(delim, StringSplitOptions.None);
+            string[] Value10Array = Value10.Split(delim, StringSplitOptions.None);
+            string[] Value11Array = Value11.Split(delim, StringSplitOptions.None);
+            string[] Value12Array = Value12.Split(delim, StringSplitOptions.None);
+            string[] Value13Array = Value13.Split(delim, StringSplitOptions.None);
+            string[] Value14Array = Value14.Split(delim, StringSplitOptions.None);
+            string[] Value15Array = Value15.Split(delim, StringSplitOptions.None);
 
             for (int i = 0; i < Value1Array.Length; i++)
             {
@@ -744,6 +760,7 @@ namespace SourceCode.SmartObjects.Services.Data
             }
             return svcADOQueryItems;
         }
+
 
         //TODO:Execute SMO For Each Result Row
         //TODO:Execute ADO Query (No Results) For Each Result Row
@@ -777,13 +794,25 @@ namespace SourceCode.SmartObjects.Services.Data
         }
         private string GetValueAtIndex(string[] stringArray, int i)
         {
-            if (stringArray.Length > i)
+            if (stringArray != null && stringArray.Length > i)
             {
                 return stringArray[i];
             }
             else
             {
                 return string.Empty;
+            }
+        }
+
+        private static string IfNullSetToDefault(string value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                return string.Empty;
+            }
+            else
+            {
+                return value;
             }
         }
         #endregion
