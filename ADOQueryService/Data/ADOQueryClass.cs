@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using SourceCode.SmartObjects.Services.ServiceSDK.Objects;
-using Attributes = SourceCode.SmartObjects.Services.ServiceSDK.Attributes;
-using SourceCode.SmartObjects.Services.ServiceSDK.Types;
+using System.Text.RegularExpressions;
 using SourceCode.Data.SmartObjectsClient;
 using SourceCode.SmartObjects.Services.Helpers;
-using System.Text.RegularExpressions;
+using SourceCode.SmartObjects.Services.ServiceSDK.Objects;
+using SourceCode.SmartObjects.Services.ServiceSDK.Types;
+using Attributes = SourceCode.SmartObjects.Services.ServiceSDK.Attributes;
 
 namespace SourceCode.SmartObjects.Services.Data
 {
@@ -167,6 +166,7 @@ namespace SourceCode.SmartObjects.Services.Data
 
         #endregion
         #endregion
+
         #region Default Constructor
         /// <summary>
         /// Instantiates a new ServiceObject1.
@@ -179,7 +179,6 @@ namespace SourceCode.SmartObjects.Services.Data
 
         #region Methods with Method Attribute
 
-        #region List<StaticServiceObject1>  ListMethod(Property[] input, RequiredProperties required, Property[] returns, MethodType methodType, ServiceObject serviceObject)
         #region Old Methods
         //        /// <summary>
         //        /// Sample implementation of a static service Object List method
@@ -416,6 +415,7 @@ namespace SourceCode.SmartObjects.Services.Data
         //        }
         #endregion
 
+        #region Service Methods
         [Attributes.Method("Query", MethodType.List, "Query", "List Method that returns Fifteen columns of data based on the input ADO Query. You can use placeholders in the query (E.g \"{value1}\" or \"{value15}\") to reference the input properties.",
                     new string[] { "ADOQuery" },  //required property array (No required properties for this sample)
                     new string[] { "ADOQuery", "Value1", "Value2", "Value3", "Value4", "Value5", "Value6", "Value7", "Value8", "Value9", "Value10", "Value11", "Value12", "Value13", "Value14", "Value15" }, //input property array (no optional properties)
@@ -425,7 +425,7 @@ namespace SourceCode.SmartObjects.Services.Data
             List<ADOQueryClass> svcADOQueryItems = new List<ADOQueryClass>();
             string polulatedQuery = GetPopulatedQuery();
 
-            using (SOConnection connection = new SOConnection(this.ServiceConfiguration["Host Server Name"].ToString(), Convert.ToInt32(this.ServiceConfiguration["Host Server Port"])))
+            using (SOConnection connection = new SOConnection(ServiceConfiguration["Host Server Name"].ToString(), Convert.ToInt32(ServiceConfiguration["Host Server Port"])))
             using (SOCommand command = new SOCommand(polulatedQuery, connection))
             using (SODataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
             {
@@ -466,7 +466,7 @@ namespace SourceCode.SmartObjects.Services.Data
 
             string polulatedQuery = GetPopulatedQuery();
 
-            using (SOConnection connection = new SOConnection(this.ServiceConfiguration["Host Server Name"].ToString(), Convert.ToInt32(this.ServiceConfiguration["Host Server Port"])))
+            using (SOConnection connection = new SOConnection(ServiceConfiguration["Host Server Name"].ToString(), Convert.ToInt32(ServiceConfiguration["Host Server Port"])))
             using (SOCommand command = new SOCommand(polulatedQuery, connection))
             using (SODataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
             {
@@ -495,9 +495,13 @@ namespace SourceCode.SmartObjects.Services.Data
                 connection.Close();
             }
             if (svcADOQueryItems.Count > 0)
+            {
                 return svcADOQueryItems[0];
+            }
             else
+            {
                 return new ADOQueryClass();
+            }
         }
 
         [Attributes.Method("QueryLast", MethodType.Read, "Query Last Item", "Read Method that returns last row with Fifteen columns of data based on the input ADO Query. You can use placeholders in the query (E.g \"{value1}\" or \"{value15}\") to reference the input properties.",
@@ -510,7 +514,7 @@ namespace SourceCode.SmartObjects.Services.Data
 
             string polulatedQuery = GetPopulatedQuery();
 
-            using (SOConnection connection = new SOConnection(this.ServiceConfiguration["Host Server Name"].ToString(), Convert.ToInt32(this.ServiceConfiguration["Host Server Port"])))
+            using (SOConnection connection = new SOConnection(ServiceConfiguration["Host Server Name"].ToString(), Convert.ToInt32(ServiceConfiguration["Host Server Port"])))
             using (SOCommand command = new SOCommand(polulatedQuery, connection))
             using (SODataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
             {
@@ -539,9 +543,13 @@ namespace SourceCode.SmartObjects.Services.Data
                 connection.Close();
             }
             if (svcADOQueryItems.Count > 0)
+            {
                 return svcADOQueryItems[svcADOQueryItems.Count - 1];
+            }
             else
+            {
                 return new ADOQueryClass();
+            }
         }
 
         [Attributes.Method("QueryIndex", MethodType.Read, "Query Item as Index", "Read Method that returns row at index with Fifteen columns of data based on the input ADO Query. You can use placeholders in the query (E.g \"{value1}\" or \"{value15}\") to reference the input properties.",
@@ -557,7 +565,7 @@ namespace SourceCode.SmartObjects.Services.Data
 
             string polulatedQuery = GetPopulatedQuery();
 
-            using (SOConnection connection = new SOConnection(this.ServiceConfiguration["Host Server Name"].ToString(), Convert.ToInt32(this.ServiceConfiguration["Host Server Port"])))
+            using (SOConnection connection = new SOConnection(ServiceConfiguration["Host Server Name"].ToString(), Convert.ToInt32(ServiceConfiguration["Host Server Port"])))
             using (SOCommand command = new SOCommand(polulatedQuery, connection))
             using (SODataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
             {
@@ -586,9 +594,13 @@ namespace SourceCode.SmartObjects.Services.Data
                 connection.Close();
             }
             if (index >= svcADOQueryItems.Count)
+            {
                 throw new Exception(string.Format("Index position '{0}' could not be found. The number of rows returned by Query was '{1}'.", index, svcADOQueryItems.Count));
+            }
             else
+            {
                 return svcADOQueryItems[index];
+            }
         }
 
         [Attributes.Method("QueryToString", MethodType.Read, "Query to Joined String", "Read Method that returns Fifteen columns of data based on the input ADO Query but joined into a string. You can use placeholders in the query (E.g \"{value1}\" or \"{value15}\") to reference the input properties.",
@@ -601,13 +613,16 @@ namespace SourceCode.SmartObjects.Services.Data
             )
         {
             if (string.IsNullOrEmpty(delimiter))
+            {
                 delimiter = ";";
+            }
+
             ADOQueryClass joinedItems = new ADOQueryClass();
             List<ADOQueryClass> svcADOQueryItems = new List<ADOQueryClass>();
 
             string polulatedQuery = GetPopulatedQuery();
 
-            using (SOConnection connection = new SOConnection(this.ServiceConfiguration["Host Server Name"].ToString(), Convert.ToInt32(this.ServiceConfiguration["Host Server Port"])))
+            using (SOConnection connection = new SOConnection(ServiceConfiguration["Host Server Name"].ToString(), Convert.ToInt32(ServiceConfiguration["Host Server Port"])))
             using (SOCommand command = new SOCommand(polulatedQuery, connection))
             using (SODataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
             {
@@ -679,13 +694,67 @@ namespace SourceCode.SmartObjects.Services.Data
             return joinedItems;
         }
 
-        //TODO:Split Values
+        [Attributes.Method("SplitStrings", MethodType.List, "Split Strings", "List Method that returns Fifteen columns of data based on the input joined strings. You can use placeholders in the query (E.g \"{value1}\" or \"{value15}\") to reference the input properties.",
+                    new string[] { },  //required property array (No required properties for this sample)
+                    new string[] { "Value1", "Value2", "Value3", "Value4", "Value5", "Value6", "Value7", "Value8", "Value9", "Value10", "Value11", "Value12", "Value13", "Value14", "Value15" }, //input property array (no optional properties)
+                    new string[] { "Value1", "Value2", "Value3", "Value4", "Value5", "Value6", "Value7", "Value8", "Value9", "Value10", "Value11", "Value12", "Value13", "Value14", "Value15" })] //return property 1-column array
+        public List<ADOQueryClass> SplitStrings(
+            [Attributes.Parameter("Delimiter",SoType.Text,"Delimiter","Delimiter to use for splitting values",false)]
+            string delimiter = ";"
+            )
+        {
+            string[] delim = new string[1];
+            delim[0] = delimiter;
+            List<ADOQueryClass> svcADOQueryItems = new List<ADOQueryClass>();
+            var Value1Array = Value1.Split(delim, StringSplitOptions.None);
+            var Value2Array = Value2.Split(delim, StringSplitOptions.None);
+            var Value3Array = Value3.Split(delim, StringSplitOptions.None);
+            var Value4Array = Value4.Split(delim, StringSplitOptions.None);
+            var Value5Array = Value5.Split(delim, StringSplitOptions.None);
+            var Value6Array = Value6.Split(delim, StringSplitOptions.None);
+            var Value7Array = Value7.Split(delim, StringSplitOptions.None);
+            var Value8Array = Value8.Split(delim, StringSplitOptions.None);
+            var Value9Array = Value9.Split(delim, StringSplitOptions.None);
+            var Value10Array = Value10.Split(delim, StringSplitOptions.None);
+            var Value11Array = Value11.Split(delim, StringSplitOptions.None);
+            var Value12Array = Value12.Split(delim, StringSplitOptions.None);
+            var Value13Array = Value13.Split(delim, StringSplitOptions.None);
+            var Value14Array = Value14.Split(delim, StringSplitOptions.None);
+            var Value15Array = Value15.Split(delim, StringSplitOptions.None);
+
+            for (int i = 0; i < Value1Array.Length; i++)
+            {
+                ADOQueryClass svcADOQuery = new ADOQueryClass();
+                svcADOQuery.Value1 = GetValueAtIndex(Value1Array, i);
+                svcADOQuery.Value2 = GetValueAtIndex(Value2Array, i);
+                svcADOQuery.Value3 = GetValueAtIndex(Value3Array, i);
+                svcADOQuery.Value4 = GetValueAtIndex(Value4Array, i);
+                svcADOQuery.Value5 = GetValueAtIndex(Value5Array, i);
+                svcADOQuery.Value6 = GetValueAtIndex(Value6Array, i);
+                svcADOQuery.Value7 = GetValueAtIndex(Value7Array, i);
+                svcADOQuery.Value8 = GetValueAtIndex(Value8Array, i);
+                svcADOQuery.Value9 = GetValueAtIndex(Value9Array, i);
+                svcADOQuery.Value10 = GetValueAtIndex(Value10Array, i);
+                svcADOQuery.Value11 = GetValueAtIndex(Value11Array, i);
+                svcADOQuery.Value12 = GetValueAtIndex(Value12Array, i);
+                svcADOQuery.Value13 = GetValueAtIndex(Value13Array, i);
+                svcADOQuery.Value14 = GetValueAtIndex(Value14Array, i);
+                svcADOQuery.Value15 = GetValueAtIndex(Value15Array, i);
+                svcADOQueryItems.Add(svcADOQuery);
+            }
+            return svcADOQueryItems;
+        }
+
         //TODO:Execute SMO For Each Result Row
         //TODO:Execute ADO Query (No Results) For Each Result Row
         //TODO:Execute ADO Query (Union Results) For Each Result Row
         //TODO:Execute ADO Query (Union  Distinct Results) For Each Result Row
 
         #endregion
+
+        #endregion
+
+        #region Helper Methods
         private string GetPopulatedQuery()
         {
             string polulatedQuery = sADOQuery;
@@ -705,6 +774,17 @@ namespace SourceCode.SmartObjects.Services.Data
             polulatedQuery = Regex.Replace(polulatedQuery, "{value14}", Value14 ?? "", RegexOptions.IgnoreCase);
             polulatedQuery = Regex.Replace(polulatedQuery, "{value15}", Value15 ?? "", RegexOptions.IgnoreCase);
             return polulatedQuery;
+        }
+        private string GetValueAtIndex(string[] stringArray, int i)
+        {
+            if (stringArray.Length > i)
+            {
+                return stringArray[i];
+            }
+            else
+            {
+                return string.Empty;
+            }
         }
         #endregion
     }
