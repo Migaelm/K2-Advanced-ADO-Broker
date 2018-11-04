@@ -26,5 +26,29 @@ namespace SourceCode.SmartObjects.Services.Helpers
             }
             return returnValue;
         }
+
+        public static string GetValueAtIndex(string[] stringArray, int i)
+        {
+            if (stringArray != null && stringArray.Length > i)
+            {
+                return stringArray[i];
+            }
+            else
+            {
+                return string.Empty;
+            }
+        }
+
+        public static string IfNullSetToDefault(string value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                return string.Empty;
+            }
+            else
+            {
+                return value;
+            }
+        }
     }
 }

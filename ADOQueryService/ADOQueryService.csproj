@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SourceCode.SmartObjects.Services</RootNamespace>
-    <AssemblyName>SourceCode.SmartObjects.Services.ADOQueryService</AssemblyName>
+    <AssemblyName>SourceCode.SmartObjects.Services.AdvancedADOService</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

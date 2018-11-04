@@ -9,20 +9,10 @@ using Attributes = SourceCode.SmartObjects.Services.ServiceSDK.Attributes;
 
 namespace SourceCode.SmartObjects.Services.Data
 {
-    /// <summary>
-    /// Sample implementation of a Static Service Object.
-    /// The class is decorated with a ServiceObject Attribute providing definition information for the Service Object.
-    /// The Properties and Methods in the class are each decorated with attributes that describe them in Service Object terms
-    /// This sample implementation contains two Properties (Number and Text) and two Methods (Read and List)
-    /// </summary>
-    [Attributes.ServiceObject("ADOQueryService", "ADO Query Service", "ADO Query Service")]
+    [Attributes.ServiceObject("AdvancedADOService", "Advanced ADO Service", "Advanced ADO Service")]
     class ADOQueryClass
     {
 
-        /// <summary>
-        /// This property is required if you want to get the service instance configuration 
-        /// settings in this class
-        /// </summary>
         private ServiceConfiguration _serviceConfig;
         public ServiceConfiguration ServiceConfiguration
         {
@@ -49,8 +39,6 @@ namespace SourceCode.SmartObjects.Services.Data
         private string sValue13 = string.Empty;
         private string sValue14 = string.Empty;
         private string sValue15 = string.Empty;
-
-
         #endregion
 
         #endregion
@@ -71,7 +59,7 @@ namespace SourceCode.SmartObjects.Services.Data
 
         #region string Value property
         /// <summary>
-        /// Property
+        /// Property Value 1 used for input and output
         /// </summary>
         [Attributes.Property("Value1", SoType.Text, "Value1", "First Column that is being returned")]
         public string Value1
@@ -79,84 +67,140 @@ namespace SourceCode.SmartObjects.Services.Data
             get { return sValue; }
             set { sValue = value; }
         }
+
+        /// <summary>
+        /// Property Value 2 used for input and output
+        /// </summary>
         [Attributes.Property("Value2", SoType.Text, "Value2", "Second Column that is being returned")]
         public string Value2
         {
             get { return sValue2; }
             set { sValue2 = value; }
         }
+
+        /// <summary>
+        /// Property Value 3 used for input and output
+        /// </summary>
         [Attributes.Property("Value3", SoType.Text, "Value3", "Third Column that is being returned")]
         public string Value3
         {
             get { return sValue3; }
             set { sValue3 = value; }
         }
+
+        /// <summary>
+        /// Property Value 4 used for input and output
+        /// </summary>
         [Attributes.Property("Value4", SoType.Text, "Value4", "Fourth Column that is being returned")]
         public string Value4
         {
             get { return sValue4; }
             set { sValue4 = value; }
         }
+
+        /// <summary>
+        /// Property Value 5 used for input and output
+        /// </summary>
         [Attributes.Property("Value5", SoType.Text, "Value5", "Fifth Column that is being returned")]
         public string Value5
         {
             get { return sValue5; }
             set { sValue5 = value; }
         }
+
+        /// <summary>
+        /// Property Value 6 used for input and output
+        /// </summary>
         [Attributes.Property("Value6", SoType.Text, "Value6", "Sixth Column that is being returned")]
         public string Value6
         {
             get { return sValue6; }
             set { sValue6 = value; }
         }
+
+        /// <summary>
+        /// Property Value 7 used for input and output
+        /// </summary>
         [Attributes.Property("Value7", SoType.Text, "Value7", "Seventh Column that is being returned")]
         public string Value7
         {
             get { return sValue7; }
             set { sValue7 = value; }
         }
+
+        /// <summary>
+        /// Property Value 8 used for input and output
+        /// </summary>
         [Attributes.Property("Value8", SoType.Text, "Value8", "Eighth Column that is being returned")]
         public string Value8
         {
             get { return sValue8; }
             set { sValue8 = value; }
         }
+
+        /// <summary>
+        /// Property Value 9 used for input and output
+        /// </summary>
         [Attributes.Property("Value9", SoType.Text, "Value9", "Ninth Column that is being returned")]
         public string Value9
         {
             get { return sValue9; }
             set { sValue9 = value; }
         }
+
+        /// <summary>
+        /// Property Value 10 used for input and output
+        /// </summary>
         [Attributes.Property("Value10", SoType.Text, "Value10", "Tenth Column that is being returned")]
         public string Value10
         {
             get { return sValue10; }
             set { sValue10 = value; }
         }
+
+        /// <summary>
+        /// Property Value 11 used for input and output
+        /// </summary>
         [Attributes.Property("Value11", SoType.Text, "Value11", "Eleventh Column that is being returned")]
         public string Value11
         {
             get { return sValue11; }
             set { sValue11 = value; }
         }
+
+        /// <summary>
+        /// Property Value 12 used for input and output
+        /// </summary>
         [Attributes.Property("Value12", SoType.Text, "Value12", "Twelveth Column that is being returned")]
         public string Value12
         {
             get { return sValue12; }
             set { sValue12 = value; }
         }
+
+        /// <summary>
+        /// Property Value 13 used for input and output
+        /// </summary>
         [Attributes.Property("Value13", SoType.Text, "Value13", "Thirteenth Column that is being returned")]
         public string Value13
         {
             get { return sValue13; }
             set { sValue13 = value; }
         }
+
+        /// <summary>
+        /// Property Value 14 used for input and output
+        /// </summary>
         [Attributes.Property("Value14", SoType.Text, "Value14", "Fourteenth Column that is being returned")]
         public string Value14
         {
             get { return sValue14; }
             set { sValue14 = value; }
         }
+
+        /// <summary>
+        /// Property Value 15 used for input and output
+        /// </summary>
         [Attributes.Property("Value15", SoType.Text, "Value15", "up to Fifteenth Column that is being returned")]
         public string Value15
         {
@@ -165,6 +209,7 @@ namespace SourceCode.SmartObjects.Services.Data
         }
 
         #endregion
+
         #endregion
 
         #region Default Constructor
@@ -178,244 +223,6 @@ namespace SourceCode.SmartObjects.Services.Data
         #endregion
 
         #region Methods with Method Attribute
-
-        #region Old Methods
-        //        /// <summary>
-        //        /// Sample implementation of a static service Object List method
-        //        /// The method is decorated with a Method Attribute which describes the Service Object Method.
-        //        /// Note that the method must return a List of the class type, and the method should not include any input parameters
-        //        /// The Properties for the class will automatically be populated by K2 using the Property arrays passed into the method
-        //        /// </summary>
-        //        [Attributes.Method("List", MethodType.List, "List Method", "List Method that returns a single column of data",
-        //            new string[] { "ADOQuery" },  //required property array (No required properties for this sample)
-        //            new string[] { "ADOQuery" }, //input property array (no optional properties)
-        //            new string[] { "Value1" })] //return property 1-column array
-        //        public List<ADOQueryClass> ListMethod()
-        //        {
-        //            List<ADOQueryClass> svcADOQueryItems = new List<ADOQueryClass>();
-
-        //            using (SOConnection connection = new SOConnection(this.ServiceConfiguration["Host Server Name"].ToString(), Convert.ToInt32(this.ServiceConfiguration["Host Server Port"])))
-        //            using (SOCommand command = new SOCommand(sADOQuery, connection))
-        //            using (SODataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
-        //            {
-        //                connection.Open();
-        //                while (reader.Read())
-        //                {
-        //                    ADOQueryClass svcADOQuery = new ADOQueryClass();
-        //                    svcADOQuery.Value1 = reader.GetValue(0).ToString();
-        //                    svcADOQueryItems.Add(svcADOQuery);
-        //                    svcADOQuery = null;
-        //                }
-        //                connection.Close();
-        //            }
-        //            return svcADOQueryItems;
-        //        }
-
-        //        [Attributes.Method("List2", MethodType.List, "List2 Method", "List Method that returns two columns of data",
-        //    new string[] { "ADOQuery" },  //required property array (No required properties for this sample)
-        //    new string[] { "ADOQuery" }, //input property array (no optional properties)
-        //    new string[] { "Value1", "Value2" })] //return property 1-column array
-        //        public List<ADOQueryClass> ListMethod2()
-        //        {
-        //            List<ADOQueryClass> svcADOQueryItems = new List<ADOQueryClass>();
-
-        //            using (SOConnection connection = new SOConnection(this.ServiceConfiguration["Host Server Name"].ToString(), Convert.ToInt32(this.ServiceConfiguration["Host Server Port"])))
-        //            using (SOCommand command = new SOCommand(sADOQuery, connection))
-        //            using (SODataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
-        //            {
-        //                connection.Open();
-        //                while (reader.Read())
-        //                {
-        //                    ADOQueryClass svcADOQuery = new ADOQueryClass();
-        //                    svcADOQuery.Value1 = reader.GetValue(0).ToString();
-        //                    svcADOQuery.Value2 = reader.GetValue(1).ToString();
-        //                    svcADOQueryItems.Add(svcADOQuery);
-        //                    svcADOQuery = null;
-        //                }
-        //                connection.Close();
-        //            }
-        //            return svcADOQueryItems;
-        //        }
-
-        //        [Attributes.Method("List3", MethodType.List, "List3 Method", "List Method that returns three columns of data",
-        //new string[] { "ADOQuery" },  //required property array (No required properties for this sample)
-        //new string[] { "ADOQuery" }, //input property array (no optional properties)
-        //new string[] { "Value1", "Value2", "Value3" })] //return property 1-column array
-        //        public List<ADOQueryClass> ListMethod3()
-        //        {
-        //            List<ADOQueryClass> svcADOQueryItems = new List<ADOQueryClass>();
-
-        //            using (SOConnection connection = new SOConnection(this.ServiceConfiguration["Host Server Name"].ToString(), Convert.ToInt32(this.ServiceConfiguration["Host Server Port"])))
-        //            using (SOCommand command = new SOCommand(sADOQuery, connection))
-        //            using (SODataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
-        //            {
-        //                connection.Open();
-        //                while (reader.Read())
-        //                {
-        //                    ADOQueryClass svcADOQuery = new ADOQueryClass();
-        //                    svcADOQuery.Value1 = reader.GetValue(0).ToString();
-        //                    svcADOQuery.Value2 = reader.GetValue(1).ToString();
-        //                    svcADOQuery.Value3 = reader.GetValue(2).ToString();
-        //                    svcADOQueryItems.Add(svcADOQuery);
-        //                    svcADOQuery = null;
-        //                }
-        //                connection.Close();
-        //            }
-        //            return svcADOQueryItems;
-        //        }
-
-        //        [Attributes.Method("List4", MethodType.List, "List4 Method", "List Method that returns four columns of data",
-        //new string[] { "ADOQuery" },  //required property array (No required properties for this sample)
-        //new string[] { "ADOQuery" }, //input property array (no optional properties)
-        //new string[] { "Value1", "Value2", "Value3", "Value4" })] //return property 1-column array
-        //        public List<ADOQueryClass> ListMethod4()
-        //        {
-        //            List<ADOQueryClass> svcADOQueryItems = new List<ADOQueryClass>();
-
-        //            using (SOConnection connection = new SOConnection(this.ServiceConfiguration["Host Server Name"].ToString(), Convert.ToInt32(this.ServiceConfiguration["Host Server Port"])))
-        //            using (SOCommand command = new SOCommand(sADOQuery, connection))
-        //            using (SODataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
-        //            {
-        //                connection.Open();
-        //                while (reader.Read())
-        //                {
-        //                    ADOQueryClass svcADOQuery = new ADOQueryClass();
-        //                    svcADOQuery.Value1 = reader.GetValue(0).ToString();
-        //                    svcADOQuery.Value2 = reader.GetValue(1).ToString();
-        //                    svcADOQuery.Value3 = reader.GetValue(2).ToString();
-        //                    svcADOQuery.Value4 = reader.GetValue(3).ToString();
-        //                    svcADOQueryItems.Add(svcADOQuery);
-        //                    svcADOQuery = null;
-        //                }
-        //                connection.Close();
-        //            }
-        //            return svcADOQueryItems;
-        //        }
-
-        //        [Attributes.Method("List5", MethodType.List, "List5 Method", "List Method that returns five columns of data",
-        //new string[] { "ADOQuery" },  //required property array (No required properties for this sample)
-        //new string[] { "ADOQuery" }, //input property array (no optional properties)
-        //new string[] { "Value1", "Value2", "Value3", "Value4", "Value5" })] //return property 1-column array
-        //        public List<ADOQueryClass> ListMethod5()
-        //        {
-        //            List<ADOQueryClass> svcADOQueryItems = new List<ADOQueryClass>();
-
-        //            using (SOConnection connection = new SOConnection(this.ServiceConfiguration["Host Server Name"].ToString(), Convert.ToInt32(this.ServiceConfiguration["Host Server Port"])))
-        //            using (SOCommand command = new SOCommand(sADOQuery, connection))
-        //            using (SODataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
-        //            {
-        //                connection.Open();
-        //                while (reader.Read())
-        //                {
-        //                    ADOQueryClass svcADOQuery = new ADOQueryClass();
-        //                    svcADOQuery.Value1 = reader.GetValue(0).ToString();
-        //                    svcADOQuery.Value2 = reader.GetValue(1).ToString();
-        //                    svcADOQuery.Value3 = reader.GetValue(2).ToString();
-        //                    svcADOQuery.Value4 = reader.GetValue(3).ToString();
-        //                    svcADOQuery.Value5 = reader.GetValue(4).ToString();
-        //                    svcADOQueryItems.Add(svcADOQuery);
-        //                    svcADOQuery = null;
-        //                }
-        //                connection.Close();
-        //            }
-        //            return svcADOQueryItems;
-        //        }
-
-        //        [Attributes.Method("List6", MethodType.List, "List6 Method", "List Method that returns six columns of data",
-        //new string[] { "ADOQuery" },  //required property array (No required properties for this sample)
-        //new string[] { "ADOQuery" }, //input property array (no optional properties)
-        //new string[] { "Value1", "Value2", "Value3", "Value4", "Value5", "Value6" })] //return property 1-column array
-        //        public List<ADOQueryClass> ListMethod6()
-        //        {
-        //            List<ADOQueryClass> svcADOQueryItems = new List<ADOQueryClass>();
-
-        //            using (SOConnection connection = new SOConnection(this.ServiceConfiguration["Host Server Name"].ToString(), Convert.ToInt32(this.ServiceConfiguration["Host Server Port"])))
-        //            using (SOCommand command = new SOCommand(sADOQuery, connection))
-        //            using (SODataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
-        //            {
-        //                connection.Open();
-        //                while (reader.Read())
-        //                {
-        //                    ADOQueryClass svcADOQuery = new ADOQueryClass();
-        //                    svcADOQuery.Value1 = reader.GetValue(0).ToString();
-        //                    svcADOQuery.Value2 = reader.GetValue(1).ToString();
-        //                    svcADOQuery.Value3 = reader.GetValue(2).ToString();
-        //                    svcADOQuery.Value4 = reader.GetValue(3).ToString();
-        //                    svcADOQuery.Value5 = reader.GetValue(4).ToString();
-        //                    svcADOQuery.Value6 = reader.GetValue(5).ToString();
-        //                    svcADOQueryItems.Add(svcADOQuery);
-        //                    svcADOQuery = null;
-        //                }
-        //                connection.Close();
-        //            }
-        //            return svcADOQueryItems;
-        //        }
-
-        //        [Attributes.Method("List7", MethodType.List, "List7 Method", "List Method that returns seven columns of data",
-        //new string[] { "ADOQuery" },  //required property array (No required properties for this sample)
-        //new string[] { "ADOQuery" }, //input property array (no optional properties)
-        //new string[] { "Value1", "Value2", "Value3", "Value4", "Value5", "Value6", "Value7" })] //return property 1-column array
-        //        public List<ADOQueryClass> ListMethod7()
-        //        {
-        //            List<ADOQueryClass> svcADOQueryItems = new List<ADOQueryClass>();
-
-        //            using (SOConnection connection = new SOConnection(this.ServiceConfiguration["Host Server Name"].ToString(), Convert.ToInt32(this.ServiceConfiguration["Host Server Port"])))
-        //            using (SOCommand command = new SOCommand(sADOQuery, connection))
-        //            using (SODataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
-        //            {
-        //                connection.Open();
-        //                while (reader.Read())
-        //                {
-        //                    ADOQueryClass svcADOQuery = new ADOQueryClass();
-        //                    svcADOQuery.Value1 = reader.GetValue(0).ToString();
-        //                    svcADOQuery.Value2 = reader.GetValue(1).ToString();
-        //                    svcADOQuery.Value3 = reader.GetValue(2).ToString();
-        //                    svcADOQuery.Value4 = reader.GetValue(3).ToString();
-        //                    svcADOQuery.Value5 = reader.GetValue(4).ToString();
-        //                    svcADOQuery.Value6 = reader.GetValue(5).ToString();
-        //                    svcADOQuery.Value7 = reader.GetValue(6).ToString();
-        //                    svcADOQueryItems.Add(svcADOQuery);
-        //                    svcADOQuery = null;
-        //                }
-        //                connection.Close();
-        //            }
-        //            return svcADOQueryItems;
-        //        }
-
-        //        [Attributes.Method("List8", MethodType.List, "List8 Method", "List Method that returns eight columns of data",
-        //new string[] { "ADOQuery" },  //required property array (No required properties for this sample)
-        //new string[] { "ADOQuery" }, //input property array (no optional properties)
-        //new string[] { "Value1", "Value2", "Value3", "Value4", "Value5", "Value6", "Value7", "Value8" })] //return property 1-column array
-        //        public List<ADOQueryClass> ListMethod8()
-        //        {
-        //            List<ADOQueryClass> svcADOQueryItems = new List<ADOQueryClass>();
-
-        //            using (SOConnection connection = new SOConnection(this.ServiceConfiguration["Host Server Name"].ToString(), Convert.ToInt32(this.ServiceConfiguration["Host Server Port"])))
-        //            using (SOCommand command = new SOCommand(sADOQuery, connection))
-        //            using (SODataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
-        //            {
-        //                connection.Open();
-        //                while (reader.Read())
-        //                {
-        //                    ADOQueryClass svcADOQuery = new ADOQueryClass();
-        //                    svcADOQuery.Value1 = reader.GetValue(0).ToString();
-        //                    svcADOQuery.Value2 = reader.GetValue(1).ToString();
-        //                    svcADOQuery.Value3 = reader.GetValue(2).ToString();
-        //                    svcADOQuery.Value4 = reader.GetValue(3).ToString();
-        //                    svcADOQuery.Value5 = reader.GetValue(4).ToString();
-        //                    svcADOQuery.Value6 = reader.GetValue(5).ToString();
-        //                    svcADOQuery.Value7 = reader.GetValue(6).ToString();
-        //                    svcADOQuery.Value8 = reader.GetValue(7).ToString();
-        //                    svcADOQueryItems.Add(svcADOQuery);
-        //                    svcADOQuery = null;
-        //                }
-        //                connection.Close();
-        //            }
-        //            return svcADOQueryItems;
-        //        }
-        #endregion
-
-        #region Service Methods
         [Attributes.Method("Query", MethodType.List, "Query", "List Method that returns up to Fifteen columns of data based on the input ADO Query. You can use placeholders in the query (E.g \"{value1}\" or \"{value15}\") to reference the input properties.",
                     new string[] { "ADOQuery" },  //required property array (No required properties for this sample)
                     new string[] { "ADOQuery", "Value1", "Value2", "Value3", "Value4", "Value5", "Value6", "Value7", "Value8", "Value9", "Value10", "Value11", "Value12", "Value13", "Value14", "Value15" }, //input property array (no optional properties)
@@ -706,21 +513,21 @@ namespace SourceCode.SmartObjects.Services.Data
             string[] delim = new string[1];
             delim[0] = delimiter;
             List<ADOQueryClass> svcADOQueryItems = new List<ADOQueryClass>();
-            Value1 = IfNullSetToDefault(Value1);
-            Value2 = IfNullSetToDefault(Value2);
-            Value3 = IfNullSetToDefault(Value3);
-            Value4 = IfNullSetToDefault(Value4);
-            Value5 = IfNullSetToDefault(Value5);
-            Value6 = IfNullSetToDefault(Value6);
-            Value7 = IfNullSetToDefault(Value7);
-            Value8 = IfNullSetToDefault(Value8);
-            Value9 = IfNullSetToDefault(Value9);
-            Value10 = IfNullSetToDefault(Value10);
-            Value11 = IfNullSetToDefault(Value11);
-            Value12 = IfNullSetToDefault(Value12);
-            Value13 = IfNullSetToDefault(Value13);
-            Value14 = IfNullSetToDefault(Value14);
-            Value15 = IfNullSetToDefault(Value15);
+            Value1 = Helper.IfNullSetToDefault(Value1);
+            Value2 = Helper.IfNullSetToDefault(Value2);
+            Value3 = Helper.IfNullSetToDefault(Value3);
+            Value4 = Helper.IfNullSetToDefault(Value4);
+            Value5 = Helper.IfNullSetToDefault(Value5);
+            Value6 = Helper.IfNullSetToDefault(Value6);
+            Value7 = Helper.IfNullSetToDefault(Value7);
+            Value8 = Helper.IfNullSetToDefault(Value8);
+            Value9 = Helper.IfNullSetToDefault(Value9);
+            Value10 = Helper.IfNullSetToDefault(Value10);
+            Value11 = Helper.IfNullSetToDefault(Value11);
+            Value12 = Helper.IfNullSetToDefault(Value12);
+            Value13 = Helper.IfNullSetToDefault(Value13);
+            Value14 = Helper.IfNullSetToDefault(Value14);
+            Value15 = Helper.IfNullSetToDefault(Value15);
 
             string[] Value1Array = Value1.Split(delim, StringSplitOptions.None);
             string[] Value2Array = Value2.Split(delim, StringSplitOptions.None);
@@ -741,21 +548,21 @@ namespace SourceCode.SmartObjects.Services.Data
             for (int i = 0; i < Value1Array.Length; i++)
             {
                 ADOQueryClass svcADOQuery = new ADOQueryClass();
-                svcADOQuery.Value1 = GetValueAtIndex(Value1Array, i);
-                svcADOQuery.Value2 = GetValueAtIndex(Value2Array, i);
-                svcADOQuery.Value3 = GetValueAtIndex(Value3Array, i);
-                svcADOQuery.Value4 = GetValueAtIndex(Value4Array, i);
-                svcADOQuery.Value5 = GetValueAtIndex(Value5Array, i);
-                svcADOQuery.Value6 = GetValueAtIndex(Value6Array, i);
-                svcADOQuery.Value7 = GetValueAtIndex(Value7Array, i);
-                svcADOQuery.Value8 = GetValueAtIndex(Value8Array, i);
-                svcADOQuery.Value9 = GetValueAtIndex(Value9Array, i);
-                svcADOQuery.Value10 = GetValueAtIndex(Value10Array, i);
-                svcADOQuery.Value11 = GetValueAtIndex(Value11Array, i);
-                svcADOQuery.Value12 = GetValueAtIndex(Value12Array, i);
-                svcADOQuery.Value13 = GetValueAtIndex(Value13Array, i);
-                svcADOQuery.Value14 = GetValueAtIndex(Value14Array, i);
-                svcADOQuery.Value15 = GetValueAtIndex(Value15Array, i);
+                svcADOQuery.Value1 = Helper.GetValueAtIndex(Value1Array, i);
+                svcADOQuery.Value2 = Helper.GetValueAtIndex(Value2Array, i);
+                svcADOQuery.Value3 = Helper.GetValueAtIndex(Value3Array, i);
+                svcADOQuery.Value4 = Helper.GetValueAtIndex(Value4Array, i);
+                svcADOQuery.Value5 = Helper.GetValueAtIndex(Value5Array, i);
+                svcADOQuery.Value6 = Helper.GetValueAtIndex(Value6Array, i);
+                svcADOQuery.Value7 = Helper.GetValueAtIndex(Value7Array, i);
+                svcADOQuery.Value8 = Helper.GetValueAtIndex(Value8Array, i);
+                svcADOQuery.Value9 = Helper.GetValueAtIndex(Value9Array, i);
+                svcADOQuery.Value10 = Helper.GetValueAtIndex(Value10Array, i);
+                svcADOQuery.Value11 = Helper.GetValueAtIndex(Value11Array, i);
+                svcADOQuery.Value12 = Helper.GetValueAtIndex(Value12Array, i);
+                svcADOQuery.Value13 = Helper.GetValueAtIndex(Value13Array, i);
+                svcADOQuery.Value14 = Helper.GetValueAtIndex(Value14Array, i);
+                svcADOQuery.Value15 = Helper.GetValueAtIndex(Value15Array, i);
                 svcADOQueryItems.Add(svcADOQuery);
             }
             return svcADOQueryItems;
@@ -766,8 +573,6 @@ namespace SourceCode.SmartObjects.Services.Data
         //TODO:Execute ADO Query (No Results) For Each Result Row
         //TODO:Execute ADO Query (Union Results) For Each Result Row
         //TODO:Execute ADO Query (Union  Distinct Results) For Each Result Row
-
-        #endregion
 
         #endregion
 
@@ -791,29 +596,6 @@ namespace SourceCode.SmartObjects.Services.Data
             polulatedQuery = Regex.Replace(polulatedQuery, "{value14}", Value14 ?? "", RegexOptions.IgnoreCase);
             polulatedQuery = Regex.Replace(polulatedQuery, "{value15}", Value15 ?? "", RegexOptions.IgnoreCase);
             return polulatedQuery;
-        }
-        private string GetValueAtIndex(string[] stringArray, int i)
-        {
-            if (stringArray != null && stringArray.Length > i)
-            {
-                return stringArray[i];
-            }
-            else
-            {
-                return string.Empty;
-            }
-        }
-
-        private static string IfNullSetToDefault(string value)
-        {
-            if (string.IsNullOrWhiteSpace(value))
-            {
-                return string.Empty;
-            }
-            else
-            {
-                return value;
-            }
         }
         #endregion
     }

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("SourceCode.SmartObjects.ADOQueryService")]
+[assembly: AssemblyTitle("SourceCode.SmartObjects.AdvancedADOService")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("K2")]
-[assembly: AssemblyProduct("ADO Query Service Broker")]
+[assembly: AssemblyProduct("Advanced ADO Service Broker")]
 [assembly: AssemblyCopyright("Copyright © K2 2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
