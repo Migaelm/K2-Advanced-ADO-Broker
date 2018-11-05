@@ -73,15 +73,18 @@
     <Compile Include="ServiceBrokers\ServiceBroker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Documentation\Advanced ADO Service Broker User Guide.docx" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>if "$(ConfigurationName)" == "DebugCopyLocal" (
-    net stop "K2 blackpearl Server"
+    net stop "K2 Server"
     Exit /b 0
 )
 ELSE
 if "$(ConfigurationName)" == "DebugCopyNoRestart" (
-    net stop "K2 blackpearl Server"
+    net stop "K2 Server"
     Exit /b 0
 )
 ELSE (
@@ -90,13 +93,13 @@ ELSE (
   </PropertyGroup>
   <PropertyGroup>
     <PostBuildEvent>if "$(ConfigurationName)" == "DebugCopyLocal" (
-    xcopy /y "$(TargetDir)$(TargetName).*" "C:\Program Files (x86)\K2 blackpearl\ServiceBroker\"
-    net start "K2 blackpearl Server"
+    xcopy /y "$(TargetDir)$(TargetName).*" "C:\Program Files\K2\ServiceBroker\"
+    net start "K2 Server"
     Exit /b 0
 )
 ELSE
 if "$(ConfigurationName)" == "DebugCopyNoRestart" (
-     xcopy /y "$(TargetDir)$(TargetName).*" "C:\Program Files (x86)\K2 blackpearl\ServiceBroker\"
+     xcopy /y "$(TargetDir)$(TargetName).*" "C:\Program Files\K2\ServiceBroker\"
     Exit /b 0
 )
 ELSE (

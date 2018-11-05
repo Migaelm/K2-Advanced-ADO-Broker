@@ -1,29 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Transactions;
-using System.Text;
-
+using SourceCode.SmartObjects.Services.Data;
 using SourceCode.SmartObjects.Services.ServiceSDK;
 using SourceCode.SmartObjects.Services.ServiceSDK.Objects;
 using SourceCode.SmartObjects.Services.ServiceSDK.Types;
 
-using SourceCode.SmartObjects.Services.Data;
-using SourceCode.SmartObjects.Services.Interfaces;
-
-namespace SourceCode.SmartObjects.Services.ADOQuery
+namespace SourceCode.SmartObjects.Services.ADO
 {
-    /// <summary>
-    /// A ServiceBroker responsible for brokering communications between the K2 platform and an underlying system or technology.
-    /// all processing is performed by the DataConnector class. You do not need to make any changes to this file
-    /// Note that this is a Static Service Broker and therefore does not include the Execute() method
-    /// </summary>
-    class ADOQueryService : ServiceAssemblyBase
+
+    class AdvancedQueryService : ServiceAssemblyBase
     {
         #region Default Constructor
-        /// <summary>
-        /// Instantiates a new ServiceBroker.
-        /// </summary>
-        public ADOQueryService()
+        public AdvancedQueryService()
         {
             // No implementation necessary.
         }
@@ -34,33 +22,21 @@ namespace SourceCode.SmartObjects.Services.ADOQuery
         #region Service Interaction Methods
 
         #region override string DescribeSchema()
-        /// <summary>
-        /// Describes the schema of the underlying data and services to the K2 platform.
-        /// </summary>
-        /// <returns>A string containing the schema XML.</returns>
         public override string DescribeSchema()
         {
             try
             {
-                // Makes better use of resources and avoids any unnecessary open connections to data sources.
                 using (DataConnector connector = new DataConnector(this))
                 {
-                    // Get the configuration from the service instance.
                     connector.GetConfiguration();
-                    // Describe the schema.
                     connector.DescribeSchema();
-                    // Set up the service instance.
                     connector.SetupService();
                 }
-
-                // Indicate that the operation was successful.
                 ServicePackage.IsSuccessful = true;
             }
             catch (Exception ex)
             {
-                // Record the exception message and indicate that this was an error.
                 ServicePackage.ServiceMessages.Add(ex.Message, MessageSeverity.Error);
-                // Indicate that the operation was unsuccessful.
                 ServicePackage.IsSuccessful = false;
             }
 
@@ -69,24 +45,17 @@ namespace SourceCode.SmartObjects.Services.ADOQuery
         #endregion
 
         #region override string GetConfigSection()
-        /// <summary>
-        /// Sets up the required configuration parameters in the service instance. When a new service instance is registered for this ServiceBroker, the configuration parameters are surfaced to the appropriate tooling. The configuration parameters are provided by the person registering the service instance.
-        /// </summary>
-        /// <returns>A string containing the configuration XML.</returns>
         public override string GetConfigSection()
         {
             try
             {
-                // Makes better use of resources and avoids any unnecessary open connections to data sources.
                 using (DataConnector connector = new DataConnector(this))
                 {
-                    // Set up the required parameters in the service instance.
                     connector.SetupConfiguration();
                 }
             }
             catch (Exception ex)
             {
-                // Record the exception message and indicate that this was an error.
                 ServicePackage.ServiceMessages.Add(ex.Message, MessageSeverity.Error);
             }
 
@@ -95,9 +64,6 @@ namespace SourceCode.SmartObjects.Services.ADOQuery
         #endregion
 
         #region override void Extend()
-        /// <summary>
-        /// Extends the underlying system or technology's schema. Only implemented for K2 SmartBox.
-        /// </summary>
         public override void Extend()
         {
             try
@@ -106,9 +72,7 @@ namespace SourceCode.SmartObjects.Services.ADOQuery
             }
             catch (Exception ex)
             {
-                // Record the exception message and indicate that this was an error.
                 ServicePackage.ServiceMessages.Add(ex.Message, MessageSeverity.Error);
-                // Indicate that the operation was unsuccessful.
                 ServicePackage.IsSuccessful = false;
             }
         }

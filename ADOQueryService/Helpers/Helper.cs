@@ -1,8 +1,5 @@
-﻿using SourceCode.Data.SmartObjectsClient;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System;
+using SourceCode.Data.SmartObjectsClient;
 
 namespace SourceCode.SmartObjects.Services.Helpers
 {
@@ -22,7 +19,9 @@ namespace SourceCode.SmartObjects.Services.Helpers
                     returnValue = Convert.ToBase64String(value as byte[]);
                 }
                 else
+                {
                     returnValue = value.ToString();
+                }
             }
             return returnValue;
         }
