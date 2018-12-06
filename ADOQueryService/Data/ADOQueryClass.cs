@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using SourceCode.Data.SmartObjectsClient;
+using SourceCode.Hosting.Client.BaseAPI;
+using SourceCode.SmartObjects.Client;
 using SourceCode.SmartObjects.Services.Helpers;
 using SourceCode.SmartObjects.Services.ServiceSDK.Objects;
 using SourceCode.SmartObjects.Services.ServiceSDK.Types;
@@ -39,13 +41,30 @@ namespace SourceCode.SmartObjects.Services.Data
         private string sValue13 = string.Empty;
         private string sValue14 = string.Empty;
         private string sValue15 = string.Empty;
+        private string smartObjectName = string.Empty;
+        private string smartObjectMethod = string.Empty;
+        private string smoValue = string.Empty;
+        private string smoValue2 = string.Empty;
+        private string smoValue3 = string.Empty;
+        private string smoValue4 = string.Empty;
+        private string smoValue5 = string.Empty;
+        private string smoValue6 = string.Empty;
+        private string smoValue7 = string.Empty;
+        private string smoValue8 = string.Empty;
+        private string smoValue9 = string.Empty;
+        private string smoValue10 = string.Empty;
+        private string smoValue11 = string.Empty;
+        private string smoValue12 = string.Empty;
+        private string smoValue13 = string.Empty;
+        private string smoValue14 = string.Empty;
+        private string smoValue15 = string.Empty;
         #endregion
 
         #endregion
 
         #region Properties with Property Attribute
 
-        #region string ADOQuery property
+        #region ADOQuery property
         /// <summary>
         /// Property representing ADO Query
         /// </summary>
@@ -57,7 +76,7 @@ namespace SourceCode.SmartObjects.Services.Data
         }
         #endregion
 
-        #region string Value property
+        #region Input Output Value properties
         /// <summary>
         /// Property Value 1 used for input and output
         /// </summary>
@@ -210,6 +229,176 @@ namespace SourceCode.SmartObjects.Services.Data
 
         #endregion
 
+        #region SMO properties
+        // <summary>
+        /// Name of SmartObject to Execute 
+        /// </summary>
+        [Attributes.Property("SmartObject", SoType.Text, "SmartObject", "Name of SmartObject to Execute")]
+        public string SmartObject
+        {
+            get { return smartObjectName; }
+            set { smartObjectName = value; }
+        }
+        // <summary>
+        /// Name of SmartObject Method to Execute 
+        /// </summary>
+        [Attributes.Property("Method", SoType.Text, "Method", "Name of SmartObject Method to Execute")]
+        public string Method
+        {
+            get { return smartObjectMethod; }
+            set { smartObjectMethod = value; }
+        }
+        /// <summary>
+        /// Property mapping for Value 1. This is the SMO Property Name that the Value Column should be mapped to as input for the SMO call.
+        /// </summary>
+        [Attributes.Property("SMOValue1", SoType.Text, "Propery Binding for Value1", "First Column mapping. This is the SMO Property Name that the Value Column should be mapped to as input for the SMO call.")]
+        public string SMOValue1
+        {
+            get { return smoValue; }
+            set { smoValue = value; }
+        }
+
+        /// <summary>
+        /// Property mapping for Value 2. This is the SMO Property Name that the Value Column should be mapped to as input for the SMO call.
+        /// </summary>
+        [Attributes.Property("SMOValue2", SoType.Text, "Propery Binding for Value2", "Second Column mapping. This is the SMO Property Name that the Value Column should be mapped to as input for the SMO call.")]
+        public string SMOValue2
+        {
+            get { return smoValue2; }
+            set { smoValue2 = value; }
+        }
+
+        /// <summary>
+        /// Property mapping for Value 3. This is the SMO Property Name that the Value Column should be mapped to as input for the SMO call.
+        /// </summary>
+        [Attributes.Property("SMOValue3", SoType.Text, "Propery Binding for Value3", "Third Column mapping. This is the SMO Property Name that the Value Column should be mapped to as input for the SMO call.")]
+        public string SMOValue3
+        {
+            get { return smoValue3; }
+            set { smoValue3 = value; }
+        }
+
+        /// <summary>
+        /// Property mapping for Value 4. This is the SMO Property Name that the Value Column should be mapped to as input for the SMO call.
+        /// </summary>
+        [Attributes.Property("SMOValue4", SoType.Text, "Propery Binding for Value4", "Fourth Column mapping. This is the SMO Property Name that the Value Column should be mapped to as input for the SMO call.")]
+        public string SMOValue4
+        {
+            get { return smoValue4; }
+            set { smoValue4 = value; }
+        }
+
+        /// <summary>
+        /// Property mapping for Value 5. This is the SMO Property Name that the Value Column should be mapped to as input for the SMO call.
+        /// </summary>
+        [Attributes.Property("SMOValue5", SoType.Text, "Propery Binding for Value5", "Fifth Column mapping. This is the SMO Property Name that the Value Column should be mapped to as input for the SMO call.")]
+        public string SMOValue5
+        {
+            get { return smoValue5; }
+            set { smoValue5 = value; }
+        }
+
+        /// <summary>
+        /// Property mapping for Value 6. This is the SMO Property Name that the Value Column should be mapped to as input for the SMO call.
+        /// </summary>
+        [Attributes.Property("SMOValue6", SoType.Text, "Propery Binding for Value6", "Sixth Column mapping. This is the SMO Property Name that the Value Column should be mapped to as input for the SMO call.")]
+        public string SMOValue6
+        {
+            get { return smoValue6; }
+            set { smoValue6 = value; }
+        }
+
+        /// <summary>
+        /// Property mapping for Value 7. This is the SMO Property Name that the Value Column should be mapped to as input for the SMO call.
+        /// </summary>
+        [Attributes.Property("SMOValue7", SoType.Text, "Propery Binding for Value7", "Seventh Column mapping. This is the SMO Property Name that the Value Column should be mapped to as input for the SMO call.")]
+        public string SMOValue7
+        {
+            get { return smoValue7; }
+            set { smoValue7 = value; }
+        }
+
+        /// <summary>
+        /// Property mapping for Value 8. This is the SMO Property Name that the Value Column should be mapped to as input for the SMO call.
+        /// </summary>
+        [Attributes.Property("SMOValue8", SoType.Text, "Propery Binding for Value8", "Eighth Column mapping. This is the SMO Property Name that the Value Column should be mapped to as input for the SMO call.")]
+        public string SMOValue8
+        {
+            get { return smoValue8; }
+            set { smoValue8 = value; }
+        }
+
+        /// <summary>
+        /// Property mapping for Value 9. This is the SMO Property Name that the Value Column should be mapped to as input for the SMO call.
+        /// </summary>
+        [Attributes.Property("SMOValue9", SoType.Text, "Propery Binding for Value9", "Ninth Column mapping. This is the SMO Property Name that the Value Column should be mapped to as input for the SMO call.")]
+        public string SMOValue9
+        {
+            get { return smoValue9; }
+            set { smoValue9 = value; }
+        }
+
+        /// <summary>
+        /// Property mapping for Value 10. This is the SMO Property Name that the Value Column should be mapped to as input for the SMO call.
+        /// </summary>
+        [Attributes.Property("SMOValue10", SoType.Text, "Propery Binding for Value10", "Tenth Column mapping. This is the SMO Property Name that the Value Column should be mapped to as input for the SMO call.")]
+        public string SMOValue10
+        {
+            get { return smoValue10; }
+            set { smoValue10 = value; }
+        }
+
+        /// <summary>
+        /// Property mapping for Value 11. This is the SMO Property Name that the Value Column should be mapped to as input for the SMO call.
+        /// </summary>
+        [Attributes.Property("SMOValue11", SoType.Text, "Propery Binding for Value11", "Eleventh Column mapping. This is the SMO Property Name that the Value Column should be mapped to as input for the SMO call.")]
+        public string SMOValue11
+        {
+            get { return smoValue11; }
+            set { smoValue11 = value; }
+        }
+
+        /// <summary>
+        /// Property mapping for Value 12. This is the SMO Property Name that the Value Column should be mapped to as input for the SMO call.
+        /// </summary>
+        [Attributes.Property("SMOValue12", SoType.Text, "Propery Binding for Value12", "Twelveth Column mapping. This is the SMO Property Name that the Value Column should be mapped to as input for the SMO call.")]
+        public string SMOValue12
+        {
+            get { return smoValue12; }
+            set { smoValue12 = value; }
+        }
+
+        /// <summary>
+        /// Property mapping for Value 13. This is the SMO Property Name that the Value Column should be mapped to as input for the SMO call.
+        /// </summary>
+        [Attributes.Property("SMOValue13", SoType.Text, "Propery Binding for Value13", "Thirteenth Column mapping. This is the SMO Property Name that the Value Column should be mapped to as input for the SMO call.")]
+        public string SMOValue13
+        {
+            get { return smoValue13; }
+            set { smoValue13 = value; }
+        }
+
+        /// <summary>
+        /// Property mapping for Value 14. This is the SMO Property Name that the Value Column should be mapped to as input for the SMO call.
+        /// </summary>
+        [Attributes.Property("SMOValue14", SoType.Text, "Propery Binding for Value14", "Fourteenth Column mapping. This is the SMO Property Name that the Value Column should be mapped to as input for the SMO call.")]
+        public string SMOValue14
+        {
+            get { return smoValue14; }
+            set { smoValue14 = value; }
+        }
+
+        /// <summary>
+        /// Property mapping for Value 15. This is the SMO Property Name that the Value Column should be mapped to as input for the SMO call.
+        /// </summary>
+        [Attributes.Property("SMOValue15", SoType.Text, "Propery Binding for Value15", "up to Fifteenth Column mapping. This is the SMO Property Name that the Value Column should be mapped to as input for the SMO call.")]
+        public string SMOValue15
+        {
+            get { return smoValue15; }
+            set { smoValue15 = value; }
+        }
+        #endregion
+
         #endregion
 
         #region Default Constructor
@@ -223,8 +412,8 @@ namespace SourceCode.SmartObjects.Services.Data
         #endregion
 
         #region Methods with Method Attribute
-        [Attributes.Method("Query", MethodType.List, "Query", "List Method that returns up to Fifteen columns of data based on the input ADO Query. You can use placeholders in the query (E.g \"{value1}\" or \"{value15}\") to reference the input properties.",
-                    new string[] { "ADOQuery" },  //required property array (No required properties for this sample)
+        [Attributes.Method("Query", ServiceSDK.Types.MethodType.List, "Query", "List Method that returns up to Fifteen columns of data based on the input ADO Query. You can use placeholders in the query (E.g \"{value1}\" or \"{value15}\") to reference the input properties.",
+                    new string[] { "ADOQuery" },
                     new string[] { "ADOQuery", "Value1", "Value2", "Value3", "Value4", "Value5", "Value6", "Value7", "Value8", "Value9", "Value10", "Value11", "Value12", "Value13", "Value14", "Value15" }, //input property array (no optional properties)
                     new string[] { "Value1", "Value2", "Value3", "Value4", "Value5", "Value6", "Value7", "Value8", "Value9", "Value10", "Value11", "Value12", "Value13", "Value14", "Value15" })] //return property 1-column array
         public List<ADOQueryClass> Query()
@@ -263,8 +452,8 @@ namespace SourceCode.SmartObjects.Services.Data
             return svcADOQueryItems;
         }
 
-        [Attributes.Method("QueryFirst", MethodType.Read, "Query First Item", "Read Method that returns first row with up to Fifteen columns of data based on the input ADO Query. You can use placeholders in the query (E.g \"{value1}\" or \"{value15}\") to reference the input properties.",
-                    new string[] { "ADOQuery" },  //required property array (No required properties for this sample)
+        [Attributes.Method("QueryFirst", ServiceSDK.Types.MethodType.Read, "Query First Item", "Read Method that returns first row with up to Fifteen columns of data based on the input ADO Query. You can use placeholders in the query (E.g \"{value1}\" or \"{value15}\") to reference the input properties.",
+                    new string[] { "ADOQuery" },
                     new string[] { "ADOQuery", "Value1", "Value2", "Value3", "Value4", "Value5", "Value6", "Value7", "Value8", "Value9", "Value10", "Value11", "Value12", "Value13", "Value14", "Value15" }, //input property array (no optional properties)
                     new string[] { "Value1", "Value2", "Value3", "Value4", "Value5", "Value6", "Value7", "Value8", "Value9", "Value10", "Value11", "Value12", "Value13", "Value14", "Value15" })] //return property 1-column array
         public ADOQueryClass QueryFirst()
@@ -311,8 +500,8 @@ namespace SourceCode.SmartObjects.Services.Data
             }
         }
 
-        [Attributes.Method("QueryLast", MethodType.Read, "Query Last Item", "Read Method that returns last row with up to Fifteen columns of data based on the input ADO Query. You can use placeholders in the query (E.g \"{value1}\" or \"{value15}\") to reference the input properties.",
-                    new string[] { "ADOQuery" },  //required property array (No required properties for this sample)
+        [Attributes.Method("QueryLast", ServiceSDK.Types.MethodType.Read, "Query Last Item", "Read Method that returns last row with up to Fifteen columns of data based on the input ADO Query. You can use placeholders in the query (E.g \"{value1}\" or \"{value15}\") to reference the input properties.",
+                    new string[] { "ADOQuery" },
                     new string[] { "ADOQuery", "Value1", "Value2", "Value3", "Value4", "Value5", "Value6", "Value7", "Value8", "Value9", "Value10", "Value11", "Value12", "Value13", "Value14", "Value15" }, //input property array (no optional properties)
                     new string[] { "Value1", "Value2", "Value3", "Value4", "Value5", "Value6", "Value7", "Value8", "Value9", "Value10", "Value11", "Value12", "Value13", "Value14", "Value15" })] //return property 1-column array
         public ADOQueryClass QueryLast()
@@ -359,8 +548,8 @@ namespace SourceCode.SmartObjects.Services.Data
             }
         }
 
-        [Attributes.Method("QueryIndex", MethodType.Read, "Query Item as Index", "Read Method that returns row at index with up to Fifteen columns of data based on the input ADO Query. You can use placeholders in the query (E.g \"{value1}\" or \"{value15}\") to reference the input properties.",
-                    new string[] { "ADOQuery" },  //required property array (No required properties for this sample)
+        [Attributes.Method("QueryIndex", ServiceSDK.Types.MethodType.Read, "Query Item as Index", "Read Method that returns row at index with up to Fifteen columns of data based on the input ADO Query. You can use placeholders in the query (E.g \"{value1}\" or \"{value15}\") to reference the input properties.",
+                    new string[] { "ADOQuery" },
                     new string[] { "ADOQuery", "Value1", "Value2", "Value3", "Value4", "Value5", "Value6", "Value7", "Value8", "Value9", "Value10", "Value11", "Value12", "Value13", "Value14", "Value15" }, //input property array (no optional properties)
                     new string[] { "Value1", "Value2", "Value3", "Value4", "Value5", "Value6", "Value7", "Value8", "Value9", "Value10", "Value11", "Value12", "Value13", "Value14", "Value15" })] //return property 1-column array
         public ADOQueryClass QueryIndex(
@@ -410,8 +599,8 @@ namespace SourceCode.SmartObjects.Services.Data
             }
         }
 
-        [Attributes.Method("QueryToString", MethodType.Read, "Query to Joined String", "Read Method that returns up to Fifteen columns of data based on the input ADO Query but joined into a string. You can use placeholders in the query (E.g \"{value1}\" or \"{value15}\") to reference the input properties.",
-                    new string[] { "ADOQuery" },  //required property array (No required properties for this sample)
+        [Attributes.Method("QueryToString", ServiceSDK.Types.MethodType.Read, "Query to Joined String", "Read Method that returns up to Fifteen columns of data based on the input ADO Query but joined into a string. You can use placeholders in the query (E.g \"{value1}\" or \"{value15}\") to reference the input properties.",
+                    new string[] { "ADOQuery" },
                     new string[] { "ADOQuery", "Value1", "Value2", "Value3", "Value4", "Value5", "Value6", "Value7", "Value8", "Value9", "Value10", "Value11", "Value12", "Value13", "Value14", "Value15" }, //input property array (no optional properties)
                     new string[] { "Value1", "Value2", "Value3", "Value4", "Value5", "Value6", "Value7", "Value8", "Value9", "Value10", "Value11", "Value12", "Value13", "Value14", "Value15" })] //return property 1-column array
         public ADOQueryClass QueryToString(
@@ -501,8 +690,8 @@ namespace SourceCode.SmartObjects.Services.Data
             return joinedItems;
         }
 
-        [Attributes.Method("SplitStrings", MethodType.List, "Split Strings", "List Method that returns up to Fifteen columns of data based on the input joined strings.",
-                    new string[] { },  //required property array (No required properties for this sample)
+        [Attributes.Method("SplitStrings", ServiceSDK.Types.MethodType.List, "Split Strings", "List Method that returns up to Fifteen columns of data based on the input joined strings.",
+                    new string[] { },
                     new string[] { "Value1", "Value2", "Value3", "Value4", "Value5", "Value6", "Value7", "Value8", "Value9", "Value10", "Value11", "Value12", "Value13", "Value14", "Value15" }, //input property array (no optional properties)
                     new string[] { "Value1", "Value2", "Value3", "Value4", "Value5", "Value6", "Value7", "Value8", "Value9", "Value10", "Value11", "Value12", "Value13", "Value14", "Value15" })] //return property 1-column array
         public List<ADOQueryClass> SplitStrings(
@@ -570,6 +759,207 @@ namespace SourceCode.SmartObjects.Services.Data
 
 
         //TODO:Execute SMO For Each Result Row
+        [Attributes.Method("ExecuteForEachResult", ServiceSDK.Types.MethodType.List, "Execute SMO For Each Result from Query", "Execute another SMO for every result returned by a Query. SMO Parameters, Input and Output properties can be mapped to Result Columns. You can use placeholders in the query (E.g \"{value1}\" or \"{value15}\") to reference the input properties.",
+                    new string[] { "ADOQuery", "SmartObject", "Method" },
+                    new string[] { "ADOQuery", "SmartObject", "Method", "SMOValue1", "SMOValue2", "SMOValue3", "SMOValue4", "SMOValue5", "SMOValue6", "SMOValue7", "SMOValue8", "SMOValue9", "SMOValue10", "SMOValue11", "SMOValue12", "SMOValue13", "SMOValue14", "SMOValue15", "Value1", "Value2", "Value3", "Value4", "Value5", "Value6", "Value7", "Value8", "Value9", "Value10", "Value11", "Value12", "Value13", "Value14", "Value15" }, //input property array (no optional properties)
+                    new string[] { "Value1", "Value2", "Value3", "Value4", "Value5", "Value6", "Value7", "Value8", "Value9", "Value10", "Value11", "Value12", "Value13", "Value14", "Value15" })] //return property 1-column array
+        public List<ADOQueryClass> ExecuteForEachResult()
+        {
+            bool isListMethod = false;
+            List<ADOQueryClass> svcADOQueryItems = new List<ADOQueryClass>();
+            List<ADOQueryClass> svcJoinedListItems = null;
+            string polulatedQuery = GetPopulatedQuery();
+
+            //Execute Query and get result values
+            using (SOConnection connection = new SOConnection(ServiceConfiguration["Host Server Name"].ToString(), Convert.ToInt32(ServiceConfiguration["Host Server Port"])))
+            using (SOCommand command = new SOCommand(polulatedQuery, connection))
+            using (SODataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection))
+            {
+                connection.Open();
+                while (reader.Read())
+                {
+                    ADOQueryClass svcADOQuery = new ADOQueryClass();
+                    svcADOQuery.Value1 = reader.GetValueAsString(0);
+                    svcADOQuery.Value2 = reader.GetValueAsString(1);
+                    svcADOQuery.Value3 = reader.GetValueAsString(2);
+                    svcADOQuery.Value4 = reader.GetValueAsString(3);
+                    svcADOQuery.Value5 = reader.GetValueAsString(4);
+                    svcADOQuery.Value6 = reader.GetValueAsString(5);
+                    svcADOQuery.Value7 = reader.GetValueAsString(6);
+                    svcADOQuery.Value8 = reader.GetValueAsString(7);
+                    svcADOQuery.Value9 = reader.GetValueAsString(8);
+                    svcADOQuery.Value10 = reader.GetValueAsString(9);
+                    svcADOQuery.Value11 = reader.GetValueAsString(10);
+                    svcADOQuery.Value12 = reader.GetValueAsString(11);
+                    svcADOQuery.Value13 = reader.GetValueAsString(12);
+                    svcADOQuery.Value14 = reader.GetValueAsString(13);
+                    svcADOQuery.Value15 = reader.GetValueAsString(14);
+                    svcADOQueryItems.Add(svcADOQuery);
+                    svcADOQuery = null;
+                }
+                connection.Close();
+            }
+            //build up a connection string with the SCConnectionStringBuilder>
+            SCConnectionStringBuilder hostServerConnectionString = new SCConnectionStringBuilder();
+            hostServerConnectionString.Host = ServiceConfiguration["Host Server Name"].ToString(); ;
+            hostServerConnectionString.Port = Convert.ToUInt32(ServiceConfiguration["Host Server Port"]); ;
+            hostServerConnectionString.IsPrimaryLogin = true;
+            hostServerConnectionString.Integrated = true;
+            SmartObjectClientServer soServer = new SmartObjectClientServer();
+            soServer.CreateConnection();
+            //open the connection to the K2 server
+            soServer.Connection.Open(hostServerConnectionString.ToString());
+            SmartObject smartObject = soServer.GetSmartObject(SmartObject);
+            // specify which method will be called. Here we're calling the load method.
+            smartObject.MethodToExecute = Method;
+            Client.MethodType methodType = Client.MethodType.execute;
+            if (smartObject.Methods.Contains(Method))
+                methodType = smartObject.Methods[Method].Type;
+            else if (smartObject.ListMethods.Contains(Method))
+                methodType = smartObject.ListMethods[Method].Type;
+            else
+                throw new Exception(string.Format("Could not find method '{0}' on SmartObject '{1}'", Method, SmartObject));
+            if (methodType == Client.MethodType.list) //Execute as List Method
+            {
+                isListMethod = true;
+                svcJoinedListItems = new List<ADOQueryClass>();
+            }
+            // get an object representing the SmartObject definition so we can set properties or interrogate the SmartObject definition 
+
+
+            //For Each Result Returned by Query
+            for (int i = 0; i < svcADOQueryItems.Count; i++)
+            {
+                if (!soServer.Connection.IsConnected)
+                {
+                    //open the connection to the K2 server
+                    soServer.Connection.Open(hostServerConnectionString.ToString());
+                }
+                smartObject = soServer.GetSmartObject(SmartObject);
+                // specify which method will be called. Here we're calling the load method.
+                smartObject.MethodToExecute = Method;
+                try
+                {
+                    //Map Values to SMO Parameters or Inputs properties
+                    // Here we set the value of the input parameter for the method. We're using the SmartObjects ID property and setting it to our defined string, _id. 
+                    MapInputProperty(smartObject, Method, SMOValue1, svcADOQueryItems[i].Value1, isListMethod);
+                    MapInputProperty(smartObject, Method, SMOValue2, svcADOQueryItems[i].Value2, isListMethod);
+                    MapInputProperty(smartObject, Method, SMOValue3, svcADOQueryItems[i].Value3, isListMethod);
+                    MapInputProperty(smartObject, Method, SMOValue4, svcADOQueryItems[i].Value4, isListMethod);
+                    MapInputProperty(smartObject, Method, SMOValue5, svcADOQueryItems[i].Value5, isListMethod);
+                    MapInputProperty(smartObject, Method, SMOValue6, svcADOQueryItems[i].Value6, isListMethod);
+                    MapInputProperty(smartObject, Method, SMOValue7, svcADOQueryItems[i].Value7, isListMethod);
+                    MapInputProperty(smartObject, Method, SMOValue8, svcADOQueryItems[i].Value8, isListMethod);
+                    MapInputProperty(smartObject, Method, SMOValue9, svcADOQueryItems[i].Value9, isListMethod);
+                    MapInputProperty(smartObject, Method, SMOValue10, svcADOQueryItems[i].Value10, isListMethod);
+                    MapInputProperty(smartObject, Method, SMOValue11, svcADOQueryItems[i].Value11, isListMethod);
+                    MapInputProperty(smartObject, Method, SMOValue12, svcADOQueryItems[i].Value12, isListMethod);
+                    MapInputProperty(smartObject, Method, SMOValue13, svcADOQueryItems[i].Value13, isListMethod);
+                    MapInputProperty(smartObject, Method, SMOValue14, svcADOQueryItems[i].Value14, isListMethod);
+                    MapInputProperty(smartObject, Method, SMOValue15, svcADOQueryItems[i].Value15, isListMethod);
+
+
+                    //Execute Scalar or List Method
+                    if (methodType == Client.MethodType.list) //Execute as List Method
+                    {
+                        // execute the method and iterate over the resulting records reading the return properties of the SmartObject
+                        SmartObjectList smoList = soServer.ExecuteList(smartObject);
+                        foreach (SmartObject resultingSmO in smoList.SmartObjectsList)
+                        {
+                            ADOQueryClass item = new ADOQueryClass
+                            {
+                                Value1 = MapReturnProperty(resultingSmO, Method, SMOValue1, svcADOQueryItems[i].Value1, isListMethod),
+                                Value2 = MapReturnProperty(resultingSmO, Method, SMOValue2, svcADOQueryItems[i].Value2, isListMethod),
+                                Value3 = MapReturnProperty(resultingSmO, Method, SMOValue3, svcADOQueryItems[i].Value3, isListMethod),
+                                Value4 = MapReturnProperty(resultingSmO, Method, SMOValue4, svcADOQueryItems[i].Value4, isListMethod),
+                                Value5 = MapReturnProperty(resultingSmO, Method, SMOValue5, svcADOQueryItems[i].Value5, isListMethod),
+                                Value6 = MapReturnProperty(resultingSmO, Method, SMOValue6, svcADOQueryItems[i].Value6, isListMethod),
+                                Value7 = MapReturnProperty(resultingSmO, Method, SMOValue7, svcADOQueryItems[i].Value7, isListMethod),
+                                Value8 = MapReturnProperty(resultingSmO, Method, SMOValue8, svcADOQueryItems[i].Value8, isListMethod),
+                                Value9 = MapReturnProperty(resultingSmO, Method, SMOValue9, svcADOQueryItems[i].Value9, isListMethod),
+                                Value10 = MapReturnProperty(resultingSmO, Method, SMOValue10, svcADOQueryItems[i].Value10, isListMethod),
+                                Value11 = MapReturnProperty(resultingSmO, Method, SMOValue11, svcADOQueryItems[i].Value11, isListMethod),
+                                Value12 = MapReturnProperty(resultingSmO, Method, SMOValue12, svcADOQueryItems[i].Value12, isListMethod),
+                                Value13 = MapReturnProperty(resultingSmO, Method, SMOValue13, svcADOQueryItems[i].Value13, isListMethod),
+                                Value14 = MapReturnProperty(resultingSmO, Method, SMOValue14, svcADOQueryItems[i].Value14, isListMethod),
+                                Value15 = MapReturnProperty(resultingSmO, Method, SMOValue15, svcADOQueryItems[i].Value15, isListMethod)
+                            };
+                            svcJoinedListItems.Add(item);
+                        }
+                    }
+                    else //Execute as Scalar Method
+                    {
+                        /* use the ExecuteScalar method to use an execute type SmartObject method, Load in this case.
+                      Set the input properties as shown above, and then use the ExecuteScalar() method to perform the SmartObject method. */
+                        soServer.ExecuteScalar(smartObject);
+
+                        // read the return properties of the SmartObject
+                        svcADOQueryItems[i].Value1 = MapReturnProperty(smartObject, Method, SMOValue1, svcADOQueryItems[i].Value1, isListMethod);
+                        svcADOQueryItems[i].Value2 = MapReturnProperty(smartObject, Method, SMOValue2, svcADOQueryItems[i].Value2, isListMethod);
+                        svcADOQueryItems[i].Value3 = MapReturnProperty(smartObject, Method, SMOValue3, svcADOQueryItems[i].Value3, isListMethod);
+                        svcADOQueryItems[i].Value4 = MapReturnProperty(smartObject, Method, SMOValue4, svcADOQueryItems[i].Value4, isListMethod);
+                        svcADOQueryItems[i].Value5 = MapReturnProperty(smartObject, Method, SMOValue5, svcADOQueryItems[i].Value5, isListMethod);
+                        svcADOQueryItems[i].Value6 = MapReturnProperty(smartObject, Method, SMOValue6, svcADOQueryItems[i].Value6, isListMethod);
+                        svcADOQueryItems[i].Value7 = MapReturnProperty(smartObject, Method, SMOValue7, svcADOQueryItems[i].Value7, isListMethod);
+                        svcADOQueryItems[i].Value8 = MapReturnProperty(smartObject, Method, SMOValue8, svcADOQueryItems[i].Value8, isListMethod);
+                        svcADOQueryItems[i].Value9 = MapReturnProperty(smartObject, Method, SMOValue9, svcADOQueryItems[i].Value9, isListMethod);
+                        svcADOQueryItems[i].Value10 = MapReturnProperty(smartObject, Method, SMOValue10, svcADOQueryItems[i].Value10, isListMethod);
+                        svcADOQueryItems[i].Value11 = MapReturnProperty(smartObject, Method, SMOValue11, svcADOQueryItems[i].Value11, isListMethod);
+                        svcADOQueryItems[i].Value12 = MapReturnProperty(smartObject, Method, SMOValue12, svcADOQueryItems[i].Value12, isListMethod);
+                        svcADOQueryItems[i].Value13 = MapReturnProperty(smartObject, Method, SMOValue13, svcADOQueryItems[i].Value13, isListMethod);
+                        svcADOQueryItems[i].Value14 = MapReturnProperty(smartObject, Method, SMOValue14, svcADOQueryItems[i].Value14, isListMethod);
+                        svcADOQueryItems[i].Value15 = MapReturnProperty(smartObject, Method, SMOValue15, svcADOQueryItems[i].Value15, isListMethod);
+
+                    }
+                    if (soServer.Connection.IsConnected)
+                    {
+                        soServer.Connection.Close();
+                    }
+                }
+                //catch (SmartObjectException oSmOEx)
+                //{
+                //    SmartObjectExceptionData oSmOExData =
+                //     default(SmartObjectExceptionData);
+                //    StringBuilder oErrMsg = new StringBuilder(); // build the string containing the error messages to display in a message box
+                //    if(oSmOEx.BrokerData != null)
+                //    foreach (SmartObjectExceptionData smOExBrokerData in oSmOEx.BrokerData)
+                //    {
+                //        oErrMsg.AppendLine("Service: " + oSmOExData.ServiceName);
+                //        oErrMsg.AppendLine("Service Guid: " + oSmOExData.ServiceGuid);
+                //        oErrMsg.AppendLine("Severity: " + oSmOExData.Severity.ToString());
+                //        oErrMsg.AppendLine("Error Message: " + oSmOExData.Message);
+                //        oErrMsg.AppendLine("InnerException Message: " + oSmOExData.InnerExceptionMessage);
+                //    }
+                //    throw new Exception(oErrMsg.ToString());
+                //}
+                catch (Exception ex)
+                {
+                    throw new Exception(string.Format("An Error has occured during SMO execution. Error: {0}.", ex.Message), ex);
+                }
+                finally
+                {
+                    // finally, close the connection 
+                    if (soServer.Connection.IsConnected)
+                    {
+                        soServer.Connection.Close();
+                    }
+                }
+                //Map SMO Output Properties to values
+            }
+
+
+
+            if (isListMethod)
+            {
+                return svcJoinedListItems;
+            }
+            else
+            {
+                return svcADOQueryItems;
+            }
+        }
+
+
         //TODO:Execute ADO Query (No Results) For Each Result Row
         //TODO:Execute ADO Query (Union Results) For Each Result Row
         //TODO:Execute ADO Query (Union  Distinct Results) For Each Result Row
@@ -596,6 +986,69 @@ namespace SourceCode.SmartObjects.Services.Data
             polulatedQuery = Regex.Replace(polulatedQuery, "{value14}", Value14 ?? "", RegexOptions.IgnoreCase);
             polulatedQuery = Regex.Replace(polulatedQuery, "{value15}", Value15 ?? "", RegexOptions.IgnoreCase);
             return polulatedQuery;
+        }
+        private static void MapInputProperty(SmartObject smartObject, string methodName, string propertyName, string value, bool isListMethod)
+        {
+            if (!string.IsNullOrWhiteSpace(propertyName))
+            {
+                if (isListMethod)
+                {
+                    if (smartObject.ListMethods[methodName].RequiredProperties.Contains(propertyName) && String.IsNullOrEmpty(value))
+                    {
+                        throw new Exception(string.Format("The property '{0}' is a required property and one of the rows being processed did not contain a value for this property.", propertyName));
+                    }
+                    if (smartObject.ListMethods[methodName].InputProperties.Contains(propertyName))
+                    {
+                        if (!string.IsNullOrEmpty(value))
+                        {
+                            smartObject.Properties[propertyName].Value = value;
+                        }
+                    }
+                }
+                else
+                {
+                    if (smartObject.Methods[methodName].RequiredProperties.Contains(propertyName) && String.IsNullOrEmpty(value))
+                    {
+                        throw new Exception(string.Format("The property '{0}' is a required property and one of the rows being processed did not contain a value for this property.", propertyName));
+                    }
+                    if (smartObject.Methods[methodName].InputProperties.Contains(propertyName))
+                    {
+                        if (!string.IsNullOrEmpty(value))
+                        {
+                            smartObject.Methods[methodName].InputProperties[propertyName].Value = value;
+                        }
+                    }
+                }
+            }
+        }
+        private static string MapReturnProperty(SmartObject smartObject, string methodName, string propertyName, string inputValue, bool isListMethod)
+        {
+            if (!string.IsNullOrWhiteSpace(propertyName))
+            {
+                if (isListMethod)
+                {
+                    if (smartObject.ListMethods[methodName].ReturnProperties.Contains(propertyName))
+                    {
+                        return smartObject.Properties[propertyName].Value;
+                    }
+                    else
+                    {
+                        return inputValue;
+                    }
+                }
+                else
+                {
+                    if (smartObject.Methods[methodName].ReturnProperties.Contains(propertyName))
+                    {
+                        return smartObject.Properties[propertyName].Value;
+                    }
+                    else
+                    {
+                        return inputValue;
+                    }
+                }
+            }
+            return null;
         }
         #endregion
     }
